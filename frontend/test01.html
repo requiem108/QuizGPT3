@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text-to-Speech Demo</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #343541;
+            color: white;
+        }
+        #bot{
+            width: 70%;
+            display: flex;
+            flex-wrap: wrap;
+            background: #3e3f4b;
+            padding: 5px;
+            color: white;
+            border-radius: 5px;
+            min-height: 40px;
+            transition: all 0.3s ease;
+        }
+        #Controles{
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #TemaContenedor{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border:solid silver 1px;
+            padding: 10px;
+        }
+        #ContenedorPrincipal{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: start;
+        }
+    </style>
+</head>
+<body>
+	<h1>DEMO DE QUIZ</h1>
+
+    <div id="ContenedorPrincipal">
+        <div id="Controles">
+            <button id="button1">Iniciar</button>
+            <p>El bot.</p>
+            <div id="bot" style="white-space: pre-wrap; overflow: auto;"></div>
+            <br>
+            <p>La persona.</p>
+            <p>Respuesta 1</p>
+            <textarea id="respuesta1" rows="3" cols="40"></textarea>
+            <p>Respuesta 2</p>
+            <textarea id="respuesta2" rows="3" cols="40"></textarea>
+            <button id="button2">mandar Respuestas</button>
+        </div>
+
+        <div id="TemaContenedor">
+            <p>
+                Las lenguas romances (también llamadas lenguas románicas, lenguas latinas o lenguas neolatinas) son una rama indoeuropea de lenguas estrechamente relacionadas entre sí y que históricamente aparecieron como evolución (o equivalentes) del latín vulgar (entendido en su sentido etimológico de habla cotidiana del vulgo o común de la gente) y opuesto al latín clásico (forma estandarizada que a partir de cierto momento era una lengua aprendida como segunda lengua y no como lengua materna).
+            </p>
+        </div>
+    
+        <div id="TemaContenedorB" style="display:none">
+            <p>
+                La definición de liderazgo abarca varios aspectos, un claro resumen de ellos es el que sigue:
+                El liderazgo es la capacidad que tiene una persona de influir, motivar, organizar y llevar a cabo acciones para lograr sus fines y objetivos que involucren a personas y grupos en una marco de valores.
+                El liderazgo es un potencial y se puede desarrollar de diferentes formas y en situaciones muy diferentes unas de otras. Se relaciona de manera muy estrecha con el cambio y con la transformación personal y colectiva.
+                El liderazgo es una oportunidad, puede ser ejercido por muchas personas en medios variados: educativo, familiar, deportivo, profesional, científico, social, militar, político…
+                El liderazgo es una capacidad que se desarrolla a partir de un potencial variado en personas y grupos.
+            </p>
+        </div>
+    </div>   
+	
+    <script src="quiz.js" type="module" ></script>
+
+</body>
+</html>
