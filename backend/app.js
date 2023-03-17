@@ -15,6 +15,8 @@ app.get('/', function (req, res) {
 });
 
 app.get('/api/', async (req, res) =>{
+  //res.json({preguntas:["¿Qué son las lenguas romances?¿Cuál es la diferencia entre latín clásico y latín vulgar?"]})
+  //return
   //console.log(req.query.texto)
   var texto = req.query.texto;  
   let prompt= `interpreta a un docente y a partir del texto crea dos preguntas menores de 10 palabras.\n\nTEXTO A ANALIZAR:${texto}\n\n\nescribe las 2 preguntas menores de 10 palabras aqui:`;
@@ -54,6 +56,8 @@ app.get('/respuesta/', async (req, res) =>{
   let respuesta1 = req.query.respuesta1; 
   let respuesta2 = req.query.respuesta2;
 
+  //res.json({textoRespuesta:"Esta es ka resouesta"})
+ // return
 
   let prompt= `TEXTO A ANALIZADO:${texto}
   preguntas generadas:
@@ -61,7 +65,7 @@ app.get('/respuesta/', async (req, res) =>{
   Respuestas
   1: ${respuesta1}
   2: ${respuesta2}
-  DIME SI LAS RESPUESTAS SON CORRECTAS Y COMPLEMENTA SI SON SIMPLES MAXIMO 100 PALABRAS:
+  DIME SI LAS RESPUESTAS SON CORRECTAS Y COMPLEMENTA SI SON SIMPLES SE BREVE:
   `
 
   //Consulta a la api OPENAI
@@ -75,7 +79,7 @@ app.get('/respuesta/', async (req, res) =>{
     model: "text-davinci-003",
     prompt: prompt,
     temperature: 0.5,
-    max_tokens: 110,
+    max_tokens: 140,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
@@ -91,6 +95,7 @@ app.get('/respuesta/', async (req, res) =>{
     res.json(respuestaObj);
     //res.json({"textoRespuesta":"\nLas respuestas son correctas, pero son demasiado simples. El liderazgo abarca varios aspectos, tales como la capacidad de influir, motivar, organizar, llevar a cabo acciones para lograr objetivos y generar cambio y transformación personal y colectiva. Además, el liderazgo se puede desarrollar en diferentes contextos, como los educativos, familiares, deportivos, profesionales, científicos, sociales, militares y políticos."})
 });
+
 
 app.listen(5000, function () {
   console.log('Servidor Express escuchando en el puerto 5000');
