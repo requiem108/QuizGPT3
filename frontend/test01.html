@@ -14,18 +14,8 @@
             align-items: center;
             background: #343541;
             color: white;
-        }
-        #bot{
-            width: 70%;
-            display: flex;
-            flex-wrap: wrap;
-            background: #3e3f4b;
             padding: 5px;
-            color: white;
-            border-radius: 5px;
-            min-height: 40px;
-            transition: all 0.3s ease;
-        }
+        }      
         #Controles{
             width: 40%;
             display: flex;
@@ -34,7 +24,7 @@
             align-items: center;
         }
         #TemaContenedor{
-            width: 50%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -46,9 +36,98 @@
             width: 100%;
             display: flex;
             flex-direction: row;
-            justify-content: center;
-            align-items: start;
+            justify-content: space-around;
+            align-items: center;
+            
         }
+        #Controles{
+            width: 55%;
+        }
+        #contenedorDialogo{
+            width: 40%;
+            padding: 10px;
+            box-sizing: content-box;
+        }
+        #chatbot{
+           
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            background: #3e3f4b;
+            padding: 5px;
+            color: white;
+            border-radius: 5px;
+            min-height: 40px;
+            transition: all 0.3s ease;
+            justify-content: center;
+            align-items: center;
+        
+        }
+        .msj{
+            width: 90%;
+            display: block;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            margin: 5px auto;
+            padding: 5px;
+            min-height: 40px;
+            color: silver;
+        }
+
+        .bot{
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            background: #585a6b;
+            padding: 5px;
+            color: white;
+            border-radius: 5px;
+            min-height: 40px;
+            transition: all 0.3s ease;
+        }
+
+        /* Estilo para botón */
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  margin: 5px;
+}
+
+/* Estilo para botón al pasar el cursor por encima */
+.button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: #fff;
+}
+
+/* Estilo para botón al presionar */
+.button:active {
+  background-color: #0062cc;
+  border-color: #005cbf;
+  color: #fff;
+}
+
+.contRespuesta{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.active-audio-capture {
+  background-color: #a9a9a9; /* Cambiar el color de fondo mientras se captura el audio */
+  border: 1px solid #ccc; /* Añadir un borde para destacar el textarea */
+}
+
     </style>
 </head>
 <body>
@@ -56,33 +135,39 @@
 
     <div id="ContenedorPrincipal">
         <div id="Controles">
-            <button id="button1">Iniciar</button>
+            <button id="button1" class="button">Iniciar</button>
             <p>El bot.</p>
-            <div id="bot" style="white-space: pre-wrap; overflow: auto;"></div>
+            <div id="chatbot">                
+                <div id="bot" class="bot" style="white-space: pre-wrap; overflow: auto;"></div>
+            </div>            
             <br>
+
             <p>La persona.</p>
+
             <p>Respuesta 1</p>
-            <textarea id="respuesta1" rows="3" cols="40"></textarea>
+            <div class="contRespuesta">
+                <button id="speack1" class="button">speak1</button>
+                <textarea id="respuesta1" rows="3" cols="40"></textarea>
+            </div>
+            
             <p>Respuesta 2</p>
-            <textarea id="respuesta2" rows="3" cols="40"></textarea>
-            <button id="button2">mandar Respuestas</button>
+            <div class="contRespuesta">
+                <button id="speack2" class="button">speack2</button>
+                <textarea id="respuesta2" rows="3" cols="40"></textarea>
+            </div>         
+            
+
+            <button id="button2" class="button">mandar Respuestas</button>
         </div>
 
-        <div id="TemaContenedor">
-            <p>
-                Las lenguas romances (también llamadas lenguas románicas, lenguas latinas o lenguas neolatinas) son una rama indoeuropea de lenguas estrechamente relacionadas entre sí y que históricamente aparecieron como evolución (o equivalentes) del latín vulgar (entendido en su sentido etimológico de habla cotidiana del vulgo o común de la gente) y opuesto al latín clásico (forma estandarizada que a partir de cierto momento era una lengua aprendida como segunda lengua y no como lengua materna).
-            </p>
-        </div>
+        <div id="contenedorDialogo">
+            <div id="TemaContenedor" >
+                <p>
+                    Las lenguas romances (también llamadas lenguas románicas, lenguas latinas o lenguas neolatinas) son una rama indoeuropea de lenguas estrechamente relacionadas entre sí y que históricamente aparecieron como evolución (o equivalentes) del latín vulgar (entendido en su sentido etimológico de habla cotidiana del vulgo o común de la gente) y opuesto al latín clásico (forma estandarizada que a partir de cierto momento era una lengua aprendida como segunda lengua y no como lengua materna).
+                </p>
+            </div>
+        </div>        
     
-        <div id="TemaContenedorB" style="display:none">
-            <p>
-                La definición de liderazgo abarca varios aspectos, un claro resumen de ellos es el que sigue:
-                El liderazgo es la capacidad que tiene una persona de influir, motivar, organizar y llevar a cabo acciones para lograr sus fines y objetivos que involucren a personas y grupos en una marco de valores.
-                El liderazgo es un potencial y se puede desarrollar de diferentes formas y en situaciones muy diferentes unas de otras. Se relaciona de manera muy estrecha con el cambio y con la transformación personal y colectiva.
-                El liderazgo es una oportunidad, puede ser ejercido por muchas personas en medios variados: educativo, familiar, deportivo, profesional, científico, social, militar, político…
-                El liderazgo es una capacidad que se desarrolla a partir de un potencial variado en personas y grupos.
-            </p>
-        </div>
     </div>   
 	
     <script src="quiz.js" type="module" ></script>
